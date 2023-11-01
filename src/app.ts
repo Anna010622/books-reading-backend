@@ -1,7 +1,7 @@
 import express, { Request, Response, Application, NextFunction } from 'express';
 import cors from 'cors';
-import usersRouter from 'routes/api/users-router';
 import booksRouter from 'routes/api/books-router';
+import authRouter from 'routes/api/auth-router';
 
 const app: Application = express();
 
@@ -13,7 +13,7 @@ app.get('/user', (req: Request, res: Response): void => {
 	res.json([{ key: 'value' }]);
 });
 
-app.use('/api/users', usersRouter);
+app.use('/api/users', authRouter);
 app.use('/api/books', booksRouter);
 
 app.use((req: Request, res: Response) => {
