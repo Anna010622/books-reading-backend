@@ -59,6 +59,12 @@ const signIn = async (req, res) => {
 	});
 };
 
+const getCurrent = (req, res) => {
+	const { email, name } = req.user;
+
+	res.json({ email, name });
+};
+
 const signOut = async (req, res) => {
 	const { _id } = req.user;
 	await User.findOneAndUpdate(_id, { token: '' });
@@ -68,5 +74,6 @@ const signOut = async (req, res) => {
 export default {
 	signUp: controllerWrapper(signUp),
 	signIn: controllerWrapper(signIn),
+	getCurrent: controllerWrapper(getCurrent),
 	signOut: controllerWrapper(signOut),
 };

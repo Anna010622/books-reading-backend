@@ -7,7 +7,7 @@ const app: Application = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 app.get('/user', (req: Request, res: Response): void => {
 	res.json([{ key: 'value' }]);
